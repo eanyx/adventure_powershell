@@ -40,8 +40,8 @@ if ($choix -eq "Regarder") {
         elseif ($pos -eq "Foret") {
             Write-Output "Vous regardez une belle forêt"
         }
-        elseif ($pos -eq "Grotte") {
-            Write-Output "Vous regardez une grotte"
+        elseif ($pos -eq "Riviere") {
+            Write-Output "Vous regardez une rivière"
         }   
         elseif ($pos -eq "Plage") {
             Write-Output "Vous regardez une belle plage"
