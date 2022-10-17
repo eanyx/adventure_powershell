@@ -49,7 +49,7 @@ if ($choix -eq "Regarder") {
         elseif ($pos -eq "Maison") {
             Write-Output "Vous regardez une grande maison"
         }
-        elseif ($pos = "maison_entree"){
+        elseif ($pos -eq "maison_entree"){
             Write-Output "Vous êtes dans une grande maison, il y a plusieurs pièces et une cheminée"
         }
         else
