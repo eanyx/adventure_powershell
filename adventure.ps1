@@ -1,9 +1,31 @@
-﻿# Script de test
+﻿# Script d'apprentissage PowerShell
+# Par Olivier MICHEL
+# Capgemini pour RTE
+# v 0.1 - 17 oct 2022
+# v 0.2 - 23 oct 2022
+
 $cle = "0"
 $pos = "chemin"
 while ($true )
 {
 $choix = Read-Host -Prompt "Que voulez-vous faire ?"
+
+    if ($choix -eq "Aide" -or $choix -eq "Help")
+    {
+    write-Output ("Marcher|Regarder|Creuser|Ouvrir|Inventaire|Sauvegader|Restaurer")
+    }
+
+    if ($choix -eq "Inventaire")
+    {
+        if ($cle -eq "1")
+        {
+            Write-Output ("Vous avez une clé")
+        }
+        else
+        {
+            Write-Output ("Vous n'avez rien en poche")
+        }
+    }
 
 
     if ($choix -eq "Marcher"){
