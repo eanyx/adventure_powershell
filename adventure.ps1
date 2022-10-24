@@ -1,8 +1,10 @@
 ﻿# Script d'apprentissage PowerShell
 # Par Olivier MICHEL
-# Capgemini pour RTE
-# v 0.1 - 17 oct 2022
+
+# v 0.1 - 17 oct 2022 - Initial Version
 # v 0.2 - 23 oct 2022
+# V 0.3 - 24 oct 2022 - Save and restoration
+
 
 $cle = "0"
 $pos = "chemin"
@@ -104,10 +106,19 @@ if ($choix -eq "Regarder") {
             
     }
 
-    if ( $choix -eq "sauver")
+    if ( $choix -eq "sauver" -or $choix -eq "sauvegarder")
     {
-        add-content save.txt "$pos;$cle"
+        set-content .\save.csv "position;cle"
+        add-content .\save.csv "$pos;$cle"
         Write-Output "Vous avez sauvegardé la partie"
+    }
+
+    if ($choix -eq "restaurer")
+    {
+        $csv = Import-CSV -Path ".\save.csv" -Delimiter ";"
+        $pos = $csv[0].position
+        $cle = $csv[0].cle
+        Write-Output "Vous avez restauré la partie"
     }
 }
 
