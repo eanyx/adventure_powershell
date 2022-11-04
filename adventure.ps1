@@ -17,7 +17,7 @@ $choix = Read-Host -Prompt "Que voulez-vous faire ?"
     write-Output ("Marcher|Regarder|Creuser|Ouvrir|Inventaire|Sauvegader|Restaurer")
     }
 
-    if ($choix -eq "Inventaire")
+    if ($choix -eq "Inventaire" -or $choix -eq "inv")
     {
         if ($cle -eq "1")
         {
@@ -115,10 +115,17 @@ if ($choix -eq "Regarder") {
 
     if ($choix -eq "restaurer")
     {
+        
+        if (Test-Path ".\save.csv"){ 
         $csv = Import-CSV -Path ".\save.csv" -Delimiter ";"
         $pos = $csv[0].position
         $cle = $csv[0].cle
         Write-Output "Vous avez restauré la partie"
+        }
+        else
+        {
+            Write-Output "Le fichier de sauvegarde n'existe pas"
+        }
     }
 }
 
